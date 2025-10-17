@@ -1,0 +1,241 @@
+/* Media Queries for Responsive Design */
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero-content {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-image-container {
+    margin-bottom: 2rem;
+  }
+  
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-orbital {
+    width: 280px;
+    height: 280px;
+  }
+  
+  /* Contact Section */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Navigation */
+  .nav-full {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .nav-compact {
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+  }
+  
+  /* Typography adjustments for small screens */
+  .hero-name {
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Small Devices (Tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Hero Section */
+  .hero-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .hero-content {
+    text-align: left;
+    align-items: flex-start;
+  }
+  
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+  
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-orbital {
+    width: 320px;
+    height: 320px;
+  }
+  
+  /* Contact Section */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Medium Devices (Small Laptops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Hero Section */
+  .hero-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Contact Section */
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  /* Hero Section */
+  .hero-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Contact Section */
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra Large Devices (Large Desktops) */
+@media (min-width: 1201px) {
+  /* Hero Section */
+  .hero-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Skills Section */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Contact Section */
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1600px) {
+  .fluid-container {
+    max-width: 1400px;
+  }
+  
+  .hero-name {
+    font-size: 5rem;
+  }
+  
+  .section-header {
+    font-size: 3.5rem;
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 80vh;
+  }
+  
+  .skills-orbital {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Portrait orientation for mobile devices */
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero-section {
+    min-height: 100vh;
+  }
+  
+  .skills-orbital {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  nav, .btn-hero, .floating-element {
+    display: none;
+  }
+  
+  section {
+    page-break-inside: avoid;
+  }
+  
+  .hero-name {
+    background: none !important;
+    -webkit-text-fill-color: #575757 !important;
+  }
+}
