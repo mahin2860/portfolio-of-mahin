@@ -1,0 +1,251 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../styles/responsive.css";
+@import "../styles/media-queries.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Soft contrast dark theme — warm & sophisticated */
+  --mint-green: #A1D1B1;
+  --charcoal-gray: #575757;
+  --pale-sand: #D8C9AE;
+  --bronze-orange: #C47623;
+  --soft-blush: #EBE2E0;
+  --deep-teal: #124B42; /* Hero Button */
+  --amber-gold: #CA763A; /* Button text */
+
+  --background: #1E1E1E; /* Soft dark base */
+  --foreground: #EBE2E0; /* Soft Blush for text */
+  --card: #2A2A2A;
+  --card-foreground: #EBE2E0;
+  --popover: #2A2A2A;
+  --popover-foreground: #EBE2E0;
+  --primary: var(--mint-green);
+  --primary-foreground: #1E1E1E;
+  --secondary: var(--pale-sand);
+  --secondary-foreground: #1E1E1E;
+  --muted: #2F2F2F;
+  --muted-foreground: #CFC7C5;
+  --accent: var(--bronze-orange);
+  --accent-foreground: #1E1E1E;
+  --destructive: #ef4444;
+  --destructive-foreground: #F9FAFB;
+  --border: rgba(0,0,0,0.25); /* Dark slim border */
+  --input: rgba(0,0,0,0.25);
+  --ring: var(--bronze-orange);
+  --chart-1: var(--mint-green);
+  --chart-2: var(--bronze-orange);
+  --chart-3: var(--pale-sand);
+  --chart-4: var(--soft-blush);
+  --chart-5: var(--charcoal-gray);
+  --radius: 0.75rem;
+  --sidebar: #242424;
+  --sidebar-foreground: #EBE2E0;
+  --sidebar-primary: var(--mint-green);
+  --sidebar-primary-foreground: #1E1E1E;
+  --sidebar-accent: var(--bronze-orange);
+  --sidebar-accent-foreground: #1E1E1E;
+  --sidebar-border: rgba(0,0,0,0.25);
+  --sidebar-ring: var(--bronze-orange);
+}
+
+.dark {
+  --background: #1B1B1B;
+  --foreground: #EBE2E0;
+  --card: #242424;
+  --card-foreground: #EBE2E0;
+  --popover: #242424;
+  --popover-foreground: #EBE2E0;
+  --primary: var(--mint-green);
+  --primary-foreground: #121212;
+  --secondary: var(--pale-sand);
+  --secondary-foreground: #121212;
+  --muted: #2A2A2A;
+  --muted-foreground: #CFC7C5;
+  --accent: var(--bronze-orange);
+  --accent-foreground: #121212;
+  --destructive: #ef4444;
+  --destructive-foreground: #F9FAFB;
+  --border: rgba(0,0,0,0.25);
+  --input: rgba(0,0,0,0.25);
+  --ring: var(--bronze-orange);
+  --chart-1: var(--mint-green);
+  --chart-2: var(--bronze-orange);
+  --chart-3: var(--pale-sand);
+  --chart-4: var(--soft-blush);
+  --chart-5: var(--charcoal-gray);
+  --sidebar: #1F1F1F;
+  --sidebar-foreground: #EBE2E0;
+  --sidebar-primary: var(--mint-green);
+  --sidebar-primary-foreground: #121212;
+  --sidebar-accent: var(--bronze-orange);
+  --sidebar-accent-foreground: #121212;
+  --sidebar-border: rgba(0,0,0,0.25);
+  --sidebar-ring: var(--bronze-orange);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Named brand colors per your palette */
+  --color-crimson: #D7263D;
+  --color-night: #02182B;
+  --color-lavender: #F49F20;
+  --color-magicx: #5E429C;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+  }
+  body { @apply bg-background text-foreground; }
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Section background utilities */
+  .bg-pale-sand { background-color: var(--pale-sand); }
+  .bg-soft-blush { background-color: var(--soft-blush); }
+  .text-mint { color: var(--mint-green); }
+  .text-charcoal { color: var(--charcoal-gray); }
+  .text-bronze { color: var(--bronze-orange); }
+
+  /* Orbitron font for tech-inspired look */
+  @font-face {
+    font-family: 'Orbitron';
+    src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&display=swap');
+    font-weight: 700 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Encode Sans Expanded as replacement for Satreco */
+  @font-face {
+    font-family: 'Encode Sans Expanded';
+    src: url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@900&display=swap');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Anton font as a better alternative to Satreco */
+  @font-face {
+    font-family: 'Anton';
+    src: url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Froles headline font */
+  @font-face {
+    font-family: 'Froles';
+    src: url('/fonts/Froles.woff2') format('woff2');
+    font-weight: 400 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  .font-froles { font-family: 'Froles', var(--font-sans), ui-sans-serif, system-ui; }
+
+  /* Satreco display font (using next/font variable fallback) */
+  .font-satreco { font-family: var(--font-anton), var(--font-satreco), 'Encode Sans Expanded', var(--font-orbitron), var(--font-sans), ui-sans-serif, system-ui; font-weight: 900; }
+
+  /* Page-specific background gradients (legacy) */
+  .page-background { min-height: 100vh; }
+  /* Home — keep as-is */
+  .home-page { background: linear-gradient(135deg, var(--color-crimson), var(--color-magicx)); color: #FFFFFF; }
+  /* New soft-dark scheme for other pages */
+  .projects-page, .skills-page, .about-page {
+    background: linear-gradient(180deg, #474747 0%, #333333 100%);
+    color: #EBE2E0;
+  }
+  /* Contact page with the new color */
+  .contact-page {
+    background: linear-gradient(180deg, #E281B1 0%, #333333 100%);
+    color: #EBE2E0;
+  }
+
+  /* Project section separator using #FD1053 */
+  .projects-separator {
+    position: relative;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FD1053, transparent);
+  }
+
+  /* Typography system */
+  .font-rosca { font-family: Rosca, var(--font-sans), ui-sans-serif, system-ui; font-weight: 700; }
+  .font-chencali { font-family: Chencali, var(--font-sans), ui-sans-serif, system-ui; font-weight: 500; }
+  .font-body { font-family: var(--font-sans), ui-sans-serif, system-ui; }
+  .font-bitro { font-family: Bitro, var(--font-sans), ui-sans-serif, system-ui; font-weight: 700; }
+
+  /* Remove glow from typography and apply slim text stroke (no boxes) */
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, button, label, small, strong, em {
+    text-shadow: none !important;
+    -webkit-text-stroke: 1px rgba(0,0,0,0.25);
+    paint-order: stroke fill;
+  }
+
+  /* Hero button utilities */
+  .btn-hero {
+    background-color: var(--deep-teal);
+    color: var(--amber-gold);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+  .btn-hero:hover {
+    box-shadow: 0 8px 20px rgba(196, 118, 58, 0.25);
+    transform: translateY(-1px);
+  }
+  
+  section {
+    min-height: 100vh;
+    padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem);
+  }
+}
