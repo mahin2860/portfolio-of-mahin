@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
-import { orbitron, satreco, anton } from "@/lib/fonts"
+import { orbitron, spaceGrotesk, inter } from "@/lib/fonts"
 
 export const metadata: Metadata = {
   title: "Erfan Noor Mahin - Tech Enthusiast & Developer",
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable} ${orbitron.variable} ${satreco.variable} ${anton.variable}`}>
+      <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable} ${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable}`}>
         <div className="page-background min-h-screen">
           <Suspense fallback={null}>{children}</Suspense>
         </div>

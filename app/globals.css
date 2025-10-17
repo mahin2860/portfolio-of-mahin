@@ -188,9 +188,8 @@
     font-display: swap;
   }
   .font-froles { font-family: 'Froles', var(--font-sans), ui-sans-serif, system-ui; }
-
-  /* Satreco display font (using next/font variable fallback) */
-  .font-satreco { font-family: var(--font-anton), var(--font-satreco), 'Encode Sans Expanded', var(--font-orbitron), var(--font-sans), ui-sans-serif, system-ui; font-weight: 900; }
+  .font-heading { font-family: var(--font-space-grotesk), var(--font-orbitron), var(--font-sans), ui-sans-serif, system-ui; letter-spacing: 0.05em; font-weight: 700; text-transform: uppercase; }
+  .font-body { font-family: var(--font-inter), var(--font-sans), ui-sans-serif, system-ui; }
 
   /* Page-specific background gradients (legacy) */
   .page-background { min-height: 100vh; }

@@ -1,6 +1,4 @@
-import { Orbitron } from "next/font/google"
-import { Encode_Sans_Expanded } from "next/font/google"
-import { Anton } from "next/font/google" // Adding Anton as a better alternative to Satreco
+import { Orbitron, Space_Grotesk, Inter } from "next/font/google"
 
 // Define the Orbitron font for tech-inspired look
 export const orbitron = Orbitron({
@@ -10,18 +8,18 @@ export const orbitron = Orbitron({
   variable: "--font-orbitron",
 })
 
-// Define Encode Sans Expanded as a replacement for Satreco
-export const satreco = Encode_Sans_Expanded({
+// Headings: Space Grotesk
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  weight: "900", // Heaviest weight for bold statement
-  variable: "--font-satreco",
+  weight: ["700"],
+  variable: "--font-space-grotesk",
 })
 
-// Alternative: Anton - A better match for Satreco's bold, wide characteristics
-export const anton = Anton({
+// Body: Inter
+export const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  weight: "400",
-  variable: "--font-anton",
+  weight: ["400", "500"],
+  variable: "--font-inter",
 })
