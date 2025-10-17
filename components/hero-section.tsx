@@ -222,17 +222,75 @@ export function HeroSection() {
           animate={{ rotate: [0, 15, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         />
+        
+        {/* Additional star doodles on the right side */}
+        <motion.div 
+          className="absolute top-1/6 right-16 w-5 h-5 text-accent/25"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+          </svg>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute top-2/5 right-8 w-3 h-3 text-mint-green/40"
+          animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+          </svg>
+        </motion.div>
+        
+        {/* Additional moon doodles on the right side */}
+        <motion.div 
+          className="absolute top-1/5 right-32 w-6 h-6 text-pale-sand/25"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z" />
+          </svg>
+        </motion.div>
+        
+        {/* Additional square doodles on the right side */}
+        <motion.div 
+          className="absolute top-3/5 right-24 w-10 h-10 rounded-lg border-2 border-bronze-orange/20"
+          animate={{ rotate: [0, -12, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <motion.div 
+          className="absolute top-4/5 right-16 w-7 h-7 rounded-lg border border-soft-blush/30"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Additional oval doodles on the right side */}
+        <motion.div 
+          className="absolute top-1/4 right-12 w-14 h-9 rounded-full border-2 border-secondary/25"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <motion.div 
+          className="absolute top-3/4 right-36 w-10 h-6 rounded-full border border-accent/25"
+          animate={{ rotate: [0, 10, 0], x: [0, 3, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="fluid-container">
-        {/* Fixed layout with profile image always on the left */}
+        {/* Fixed layout with text on the right and image on the left on large screens */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center min-h-[70vh]">
-          {/* Left side - Image content (fixed on left, always visible) */}
+          {/* Left side - Image content (sticks to left on large screens) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex-shrink-0 w-full sm:w-80 md:w-96 lg:w-80 xl:w-96"
+            className="relative flex-shrink-0 w-full sm:w-80 md:w-96 lg:w-80 xl:w-96 order-1 lg:order-1 lg:ml-16"
           >
             <div className="relative responsive-image overflow-hidden rounded-[48%_52%_45%_55%/55%_45%_55%_45%] ring-2 ring-primary/40 shadow-2xl mx-auto lg:mx-0">
               <Image src="/erfan-profile.jpg" alt="Erfan Noor Mahin" fill className="object-cover" priority />
@@ -265,19 +323,19 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right side - Content (responsive text that scales with screen size) */}
+          {/* Right side - Content (text on right for large screens) */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex-grow w-full text-center lg:text-left"
+            className="flex-grow w-full text-center lg:text-left order-2 lg:order-2"
           >
             <div className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="hero-greeting font-bold text-white"
+                className="hero-greeting font-body font-semibold text-white"
               >
                 {greeting.split("").map((char, i) => (
                   <motion.span
@@ -287,86 +345,69 @@ export function HeroSection() {
                     initial="hidden"
                     animate="visible"
                     className="inline-block"
-                    style={{ fontFamily: "var(--font-geist-sans)" }}
                   >
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
                 ))}
               </motion.div>
 
-              <motion.h1 className="hero-name font-extrabold leading-tight tracking-tight text-left antialiased">
+              <motion.h1 className="hero-name font-heading leading-tight tracking-tight text-left antialiased">
                 <div className="flex flex-col items-start">
                   <SplitTextAnimation 
-                    text="Erfan Noor Mahin" 
-                    className="inline-block text-white font-bold font-satreco" 
-                    style={{ fontFamily: "var(--font-anton), var(--font-satreco), 'Encode Sans Expanded', var(--font-orbitron), var(--font-geist-sans)" }}
-                    delay={0.3}
-                    staggerDelay={0.05}
+                    text="ERFAN NOOR MAHIN" 
+                    className="inline-block text-white font-heading text-3xl md:text-4xl lg:text-5xl"
+                    delay={0.25}
+                    staggerDelay={0.04}
                   />
                 </div>
               </motion.h1>
 
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="hero-description font-body leading-relaxed text-white text-left my-4"
+              >
+                Passionate about building modern web applications and managing databases. I craft digital experiences that
+                blend innovative design with robust engineering—beautiful and functional.
+              </motion.p>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="hero-title font-semibold text-white text-left"
+                transition={{ delay: 1.2 }}
+                className="flex flex-wrap gap-4 justify-center lg:justify-start"
               >
-                <SplitTextAnimation 
-                  text={title} 
-                  className="inline-block" 
-                  delay={1.0}
-                  staggerDelay={0.03}
-                />
+                <button
+                  onClick={() => {
+                    const targetId = "projects"
+                    const element = document.getElementById(targetId)
+                    if (element) {
+                      const offset = 100
+                      const elementPosition = element.getBoundingClientRect().top + window.scrollY
+                      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" })
+                    }
+                  }}
+                  className="px-6 py-3 bg-accent text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-accent/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg responsive-btn"
+                >
+                  View My Work
+                </button>
+                <button
+                  onClick={() => {
+                    const targetId = "contact"
+                    const element = document.getElementById(targetId)
+                    if (element) {
+                      const offset = 100
+                      const elementPosition = element.getBoundingClientRect().top + window.scrollY
+                      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" })
+                    }
+                  }}
+                  className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg responsive-btn"
+                >
+                  Get In Touch
+                </button>
               </motion.div>
             </div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
-              className="hero-description leading-relaxed text-white text-left my-8"
-            >
-              Passionate about building modern web applications and managing databases. I craft digital experiences that
-              blend innovative design with robust engineering, creating solutions that are both beautiful and
-              functional.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start"
-            >
-              <button
-                onClick={() => {
-                  const targetId = "projects"
-                  const element = document.getElementById(targetId)
-                  if (element) {
-                    const offset = 100
-                    const elementPosition = element.getBoundingClientRect().top + window.scrollY
-                    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" })
-                  }
-                }}
-                className="px-6 py-3 bg-accent text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-accent/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg responsive-btn"
-              >
-                View My Work
-              </button>
-              <button
-                onClick={() => {
-                  const targetId = "contact"
-                  const element = document.getElementById(targetId)
-                  if (element) {
-                    const offset = 100
-                    const elementPosition = element.getBoundingClientRect().top + window.scrollY
-                    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" })
-                  }
-                }}
-                className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg responsive-btn"
-              >
-                Get In Touch
-              </button>
-            </motion.div>
           </motion.div>
         </div>
       </div>
