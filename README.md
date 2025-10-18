@@ -86,4 +86,5 @@ npm run build
 
 ---
 
-*Crafted with passion by Erfan Noor Mahin*
+
+Crafted by Erfan Noor Mahin
