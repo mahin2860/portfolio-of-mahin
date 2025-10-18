@@ -5,28 +5,26 @@ import { Mail, Instagram } from "lucide-react"
 import { FloatingElement } from "./floating-element"
 import { FluidGlass } from "./fluid-glass"
 import { StarButton } from "@/components/ui/star-button"
+import { StarDoodle, MoonDoodle, CloudDoodle, HeartDoodle, CircleDoodle, SquareDoodle, TriangleDoodle, SparkleDoodle } from "@/components/doodle-elements"
 
 const contactMethods = [
   {
     icon: Mail,
-    label: "Personal Email",
+    title: "Personal Email",
     value: "mahinerfan2860@gmail.com",
     href: "mailto:mahinerfan2860@gmail.com",
-    color: "primary",
   },
   {
     icon: Mail,
-    label: "Work Email",
+    title: "Work Email",
     value: "thisisus533@gmail.com",
     href: "mailto:thisisus533@gmail.com",
-    color: "secondary",
   },
   {
     icon: Instagram,
-    label: "Instagram",
-    value: "@erfannoormahin",
-    href: "https://instagram.com/erfannoormahin",
-    color: "accent",
+    title: "Instagram",
+    value: "@mahin_.nn",
+    href: "https://instagram.com/mahin_.nn",
   },
 ]
 
@@ -60,6 +58,16 @@ export function ContactSection() {
           }}
           className="absolute bottom-1/3 right-1/3 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
         />
+        
+        {/* Doodle elements for the contact section */}
+        <StarDoodle className="absolute top-20 left-10 w-6 h-6" delay={0.5} />
+        <MoonDoodle className="absolute top-32 right-16 w-8 h-8" delay={1} />
+        <CloudDoodle className="absolute bottom-40 left-20 w-10 h-6" delay={1.5} />
+        <HeartDoodle className="absolute top-1/3 right-32 w-5 h-5" delay={2} />
+        <CircleDoodle className="absolute bottom-32 right-24 w-8 h-8" delay={2.5} />
+        <SquareDoodle className="absolute top-1/4 left-1/3 w-7 h-7" delay={3} />
+        <TriangleDoodle className="absolute bottom-1/4 left-1/4 w-6 h-6" delay={3.5} />
+        <SparkleDoodle className="absolute top-3/4 right-1/3 w-4 h-4" delay={4} />
       </div>
 
       <div className="fluid-container">
@@ -92,11 +100,11 @@ export function ContactSection() {
 
         <div className="grid gap-6 responsive-gap md:grid-cols-3">
           {contactMethods.map((method, index) => (
-            <FloatingElement key={method.label} delay={index * 0.2} duration={3 + index}>
+            <FloatingElement key={method.title} delay={index * 0.2} duration={3 + index}>
               <motion.a
                 href={method.href}
-                target={method.label === "Instagram" ? "_blank" : undefined}
-                rel={method.label === "Instagram" ? "noopener noreferrer" : undefined}
+                target={method.title === "Instagram" ? "_blank" : undefined}
+                rel={method.title === "Instagram" ? "noopener noreferrer" : undefined}
                 initial={{ opacity: 0, y: 50, rotateX: -20 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -115,7 +123,7 @@ export function ContactSection() {
                       <method.icon className={`h-6 w-6 text-foreground`} />
                     </motion.div>
                     <div className="space-y-1 text-center">
-                      <p className="contact-label font-medium text-foreground/80">{method.label}</p>
+                      <p className="contact-label font-medium text-foreground/80">{method.title}</p>
                       <p className="contact-value font-semibold text-foreground">{method.value}</p>
                     </div>
                   </div>
@@ -138,7 +146,7 @@ export function ContactSection() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="contact-title font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent"
+                className="contact-title font-bold text-accent"
               >
                 Ready to start a project?
               </motion.h3>
@@ -159,6 +167,7 @@ export function ContactSection() {
                   onClick={() => window.location.href = "mailto:mahinerfan2860@gmail.com"}
                   lightColor="#C47623"
                   backgroundColor="#124B42"
+                  className="text-white"
                 >
                   Send Me an Email
                 </StarButton>

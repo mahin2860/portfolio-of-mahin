@@ -10,6 +10,10 @@ import { FluidGlass } from "./fluid-glass"
 import { StarButton } from "@/components/ui/star-button"
 import { HoverButton } from "@/components/ui/hover-glow-button"
 import { SplitTextAnimation } from "@/components/split-text-animation"
+import { StarDoodle, MoonDoodle, CloudDoodle, HeartDoodle, CircleDoodle, SquareDoodle, TriangleDoodle, SparkleDoodle } from "@/components/doodle-elements"
+import { GlareHover } from "@/components/glare-hover"
+import { TargetCursor } from "@/components/target-cursor"
+import { ProtectedImage } from "@/components/protected-image"
 
 export function HeroSection() {
   const blobRef = useRef<HTMLDivElement | null>(null)
@@ -62,7 +66,7 @@ export function HeroSection() {
         {/* Organic blob backdrop with warm dreamscape colors */}
         <div
           ref={blobRef}
-          className="absolute left-1/4 top-1/4 h-[28rem] w-[28rem] blur-2xl"
+          className="absolute left-1/4 top-1/4 h-[28rem] w-[28rem] blur-2xl max-md:h-[20rem] max-md:w-[20rem] max-sm:h-[16rem] max-sm:w-[16rem]"
           style={{
             background:
               "radial-gradient(80% 60% at 50% 50%, rgba(255,102,179,0.55), rgba(91,142,255,0.35) 60%, rgba(255,212,71,0.2) 100%)",
@@ -74,10 +78,10 @@ export function HeroSection() {
         {/* Additional gradient layers for depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#FF66B3]/50 to-[#5B8EFF]/30"></div>
         
-        {/* Decorative background elements above and below content */}
+        {/* Decorative background elements above and below content - hidden on mobile to prevent overlap */}
         {/* Star-shaped doodles */}
         <motion.div 
-          className="absolute top-20 left-10 w-8 h-8 text-accent/20"
+          className="absolute top-20 left-10 w-8 h-8 text-accent/20 max-md:hidden"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         >
@@ -87,7 +91,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="absolute bottom-20 right-10 w-6 h-6 text-primary/20"
+          className="absolute bottom-20 right-10 w-6 h-6 text-primary/20 max-md:hidden"
           animate={{ rotate: -360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         >
@@ -98,7 +102,7 @@ export function HeroSection() {
         
         {/* Additional stars on the right side */}
         <motion.div 
-          className="absolute top-1/4 right-24 w-4 h-4 text-accent/30"
+          className="absolute top-1/4 right-24 w-4 h-4 text-accent/30 max-md:hidden"
           animate={{ rotate: 360 }}
           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
         >
@@ -108,7 +112,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-1/3 right-16 w-5 h-5 text-secondary/30"
+          className="absolute top-1/3 right-16 w-5 h-5 text-secondary/30 max-md:hidden"
           animate={{ rotate: -360 }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
         >
@@ -118,7 +122,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-2/3 right-32 w-3 h-3 text-primary/30"
+          className="absolute top-2/3 right-32 w-3 h-3 text-primary/30 max-md:hidden"
           animate={{ rotate: 360 }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         >
@@ -129,7 +133,7 @@ export function HeroSection() {
         
         {/* Additional thematic stars on the right side */}
         <motion.div 
-          className="absolute top-1/5 right-40 w-3 h-3 text-amber-200/40"
+          className="absolute top-1/5 right-40 w-3 h-3 text-amber-200/40 max-md:hidden"
           animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.8, 0.4] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -139,7 +143,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-3/5 right-36 w-4 h-4 text-mint-green/30"
+          className="absolute top-3/5 right-36 w-4 h-4 text-mint-green/30 max-md:hidden"
           animate={{ rotate: 360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         >
@@ -149,7 +153,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-2/5 right-44 w-2 h-2 text-soft-blush/50"
+          className="absolute top-2/5 right-44 w-2 h-2 text-soft-blush/50 max-md:hidden"
           animate={{ y: [0, -5, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -160,7 +164,7 @@ export function HeroSection() {
         
         {/* Additional moon elements */}
         <motion.div 
-          className="absolute top-4/5 right-28 w-8 h-8 text-pale-sand/30"
+          className="absolute top-4/5 right-28 w-8 h-8 text-pale-sand/30 max-md:hidden"
           animate={{ x: [0, 5, 0], y: [0, -5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -171,7 +175,7 @@ export function HeroSection() {
         
         {/* Crescent moon variant */}
         <motion.div 
-          className="absolute top-1/3 right-48 w-6 h-6 text-bronze-orange/20"
+          className="absolute top-1/3 right-48 w-6 h-6 text-bronze-orange/20 max-md:hidden"
           animate={{ rotate: [0, 10, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -183,7 +187,7 @@ export function HeroSection() {
         
         {/* Moon on the right side */}
         <motion.div 
-          className="absolute top-1/2 right-8 w-12 h-12 text-accent/20"
+          className="absolute top-1/2 right-8 w-12 h-12 text-accent/20 max-md:hidden"
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -194,7 +198,7 @@ export function HeroSection() {
         
         {/* Additional star near the moon */}
         <motion.div 
-          className="absolute top-2/5 right-12 w-4 h-4 text-secondary/40"
+          className="absolute top-2/5 right-12 w-4 h-4 text-secondary/40 max-md:hidden"
           animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -205,27 +209,27 @@ export function HeroSection() {
         
         {/* Oval-shaped doodles */}
         <motion.div 
-          className="absolute top-1/3 right-20 w-16 h-10 rounded-full border-2 border-secondary/20"
+          className="absolute top-1/3 right-20 w-16 h-10 rounded-full border-2 border-secondary/20 max-md:hidden"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
         
         <motion.div 
-          className="absolute bottom-1/3 left-20 w-12 h-8 rounded-full border-2 border-accent/20"
+          className="absolute bottom-1/3 left-20 w-12 h-8 rounded-full border-2 border-accent/20 max-md:hidden"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
         {/* Additional small oval on the right */}
         <motion.div 
-          className="absolute top-3/4 right-40 w-8 h-5 rounded-full border-2 border-amber-gold/20"
+          className="absolute top-3/4 right-40 w-8 h-5 rounded-full border-2 border-amber-gold/20 max-md:hidden"
           animate={{ rotate: [0, 15, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         />
         
         {/* Additional star doodles on the right side */}
         <motion.div 
-          className="absolute top-1/6 right-16 w-5 h-5 text-accent/25"
+          className="absolute top-1/6 right-16 w-5 h-5 text-accent/25 max-md:hidden"
           animate={{ rotate: 360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         >
@@ -235,7 +239,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div 
-          className="absolute top-2/5 right-8 w-3 h-3 text-mint-green/40"
+          className="absolute top-2/5 right-8 w-3 h-3 text-mint-green/40 max-md:hidden"
           animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -246,7 +250,7 @@ export function HeroSection() {
         
         {/* Additional moon doodles on the right side */}
         <motion.div 
-          className="absolute top-1/5 right-32 w-6 h-6 text-pale-sand/25"
+          className="absolute top-1/5 right-32 w-6 h-6 text-pale-sand/25 max-md:hidden"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -257,30 +261,150 @@ export function HeroSection() {
         
         {/* Additional square doodles on the right side */}
         <motion.div 
-          className="absolute top-3/5 right-24 w-10 h-10 rounded-lg border-2 border-bronze-orange/20"
+          className="absolute top-3/5 right-24 w-10 h-10 rounded-lg border-2 border-bronze-orange/20 max-md:hidden"
           animate={{ rotate: [0, -12, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         
         <motion.div 
-          className="absolute top-4/5 right-16 w-7 h-7 rounded-lg border border-soft-blush/30"
+          className="absolute top-4/5 right-16 w-7 h-7 rounded-lg border border-soft-blush/30 max-md:hidden"
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         
         {/* Additional oval doodles on the right side */}
         <motion.div 
-          className="absolute top-1/4 right-12 w-14 h-9 rounded-full border-2 border-secondary/25"
+          className="absolute top-1/4 right-12 w-14 h-9 rounded-full border-2 border-secondary/25 max-md:hidden"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         />
         
         <motion.div 
-          className="absolute top-3/4 right-36 w-10 h-6 rounded-full border border-accent/25"
+          className="absolute top-3/4 right-36 w-10 h-6 rounded-full border border-accent/25 max-md:hidden"
           animate={{ rotate: [0, 10, 0], x: [0, 3, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         />
+        
+        {/* Additional doodles on the left side - hidden on mobile */}
+        <StarDoodle className="absolute top-1/4 left-10 w-6 h-6 max-md:hidden" delay={0.5} />
+        <MoonDoodle className="absolute top-1/2 left-20 w-8 h-8 max-md:hidden" delay={1} />
+        <CloudDoodle className="absolute top-3/4 left-16 w-10 h-6 max-md:hidden" delay={1.5} />
+        <HeartDoodle className="absolute top-1/5 left-24 w-5 h-5 max-md:hidden" delay={2} />
+        <CircleDoodle className="absolute top-2/5 left-12 w-8 h-8 max-md:hidden" delay={2.5} />
+        <SquareDoodle className="absolute bottom-1/3 left-28 w-7 h-7 max-md:hidden" delay={3} />
+        <TriangleDoodle className="absolute bottom-1/4 left-32 w-6 h-6 max-md:hidden" delay={3.5} />
+        <SparkleDoodle className="absolute bottom-2/5 left-20 w-4 h-4 max-md:hidden" delay={4} />
+        
+        {/* Additional doodles on the right side - hidden on mobile */}
+        <StarDoodle className="absolute top-1/6 right-20 w-5 h-5 max-md:hidden" delay={0.8} />
+        <MoonDoodle className="absolute top-2/5 right-28 w-7 h-7 max-md:hidden" delay={1.2} />
+        <CloudDoodle className="absolute top-3/5 right-24 w-9 h-6 max-md:hidden" delay={1.6} />
+        <HeartDoodle className="absolute top-4/5 right-32 w-6 h-6 max-md:hidden" delay={2} />
+        <CircleDoodle className="absolute top-1/3 right-16 w-10 h-10 max-md:hidden" delay={2.4} />
+        <SquareDoodle className="absolute bottom-2/5 right-20 w-8 h-8 max-md:hidden" delay={2.8} />
+        <TriangleDoodle className="absolute bottom-1/3 right-28 w-7 h-7 max-md:hidden" delay={3.2} />
+        <SparkleDoodle className="absolute bottom-1/4 right-16 w-5 h-5 max-md:hidden" delay={3.6} />
+        
+        {/* Additional doodles near the profile image - hidden on mobile */}
+        <StarDoodle className="absolute left-1/4 top-20 w-4 h-4 max-md:hidden" delay={1} />
+        <HeartDoodle className="absolute right-1/3 top-24 w-5 h-5 max-md:hidden" delay={1.5} />
+        <SparkleDoodle className="absolute left-1/3 bottom-20 w-3 h-3 max-md:hidden" delay={2} />
+        <CircleDoodle className="absolute right-1/4 bottom-24 w-6 h-6 max-md:hidden" delay={2.5} />
+        
+        {/* Floating doodles for extra playfulness - hidden on mobile */}
+        <motion.div 
+          className="absolute top-1/5 left-1/3 w-6 h-6 text-bronze-orange/30 max-md:hidden"
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z" />
+          </svg>
+        </motion.div>
+        
+        <motion.div 
+          className="absolute bottom-1/4 right-1/3 w-5 h-5 text-mint-green/40 max-md:hidden"
+          animate={{ x: [0, 15, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+          </svg>
+        </motion.div>
+        
+        {/* Additional decorative elements around the profile - hidden on mobile */}
+        <motion.div 
+          className="absolute -right-8 top-1/3 w-6 h-6 rounded-full border-2 border-secondary/20 max-md:hidden"
+          animate={{ scale: [1, 1.3, 1] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <motion.div 
+          className="absolute -left-8 bottom-1/3 w-5 h-5 text-primary/20 max-md:hidden"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+          </svg>
+        </motion.div>
       </div>
+
+      {/* 5 new doodle animations on the right side using oval and square shapes */}
+      <motion.div 
+        className="absolute top-1/6 right-8 w-12 h-8 rounded-full border-2 border-secondary/20 max-md:hidden"
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute top-1/4 right-12 w-10 h-10 rounded-lg border-2 border-accent/20 max-md:hidden"
+        animate={{ rotate: [0, 10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute top-1/3 right-6 w-14 h-9 rounded-full border-2 border-bronze-orange/20 max-md:hidden"
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute top-2/5 right-10 w-8 h-8 rounded-lg border-2 border-soft-blush/30 max-md:hidden"
+        animate={{ rotate: [0, -12, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute top-1/2 right-14 w-12 h-7 rounded-full border border-mint-green/25 max-md:hidden"
+        animate={{ rotate: [0, 8, 0], x: [0, 3, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Additional new doodles for more visual interest */}
+      <motion.div 
+        className="absolute top-1/5 left-16 w-6 h-6 rounded-lg border-2 border-pale-sand/20 max-md:hidden"
+        animate={{ rotate: [0, -15, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute bottom-1/4 left-24 w-10 h-10 rounded-full border-2 border-amber-gold/20 max-md:hidden"
+        animate={{ scale: [1, 1.15, 1] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute bottom-2/5 right-20 w-8 h-8 rounded-lg border border-bronze-orange/25 max-md:hidden"
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      />
+      
+      <motion.div 
+        className="absolute top-3/4 right-24 w-12 h-6 rounded-full border-2 border-mint-green/30 max-md:hidden"
+        animate={{ rotate: [0, 12, 0], x: [0, -4, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <div className="fluid-container">
         {/* Fixed layout with text on the right and image on the left on large screens */}
@@ -293,27 +417,27 @@ export function HeroSection() {
             className="relative flex-shrink-0 w-full sm:w-80 md:w-96 lg:w-80 xl:w-96 order-1 lg:order-1 lg:ml-16"
           >
             <div className="relative responsive-image overflow-hidden rounded-[48%_52%_45%_55%/55%_45%_55%_45%] ring-2 ring-primary/40 shadow-2xl mx-auto lg:mx-0">
-              <Image src="/erfan-profile.jpg" alt="Erfan Noor Mahin" fill className="object-cover" priority />
+              <ProtectedImage src="/erfan-profile.jpg" alt="Erfan Noor Mahin" fill priority />
             </div>
 
-            {/* Decorative elements with animations */}
-            <motion.div className="absolute -right-4 -top-4 h-16 w-16 rounded-2xl border border-primary/20 md:-right-6 md:-top-6 md:h-24 md:w-24" animate={{ rotate: 15 }} transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }} />
-            <motion.div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-2xl border border-accent/20 md:-bottom-6 md:-left-6 md:h-28 md:w-28" animate={{ rotate: -12 }} transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }} />
+            {/* Decorative elements with animations - hidden on mobile to prevent overlap */}
+            <motion.div className="absolute -right-4 -top-4 h-16 w-16 rounded-2xl border border-primary/20 md:-right-6 md:-top-6 md:h-24 md:w-24 max-md:hidden" animate={{ rotate: 15 }} transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }} />
+            <motion.div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-2xl border border-accent/20 md:-bottom-6 md:-left-6 md:h-28 md:w-28 max-md:hidden" animate={{ rotate: -12 }} transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }} />
             
-            {/* Additional square-shaped background doodles */}
-            <motion.div className="absolute -left-8 top-1/4 h-12 w-12 rounded-2xl border border-secondary/20" animate={{ rotate: 8 }} transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }} />
-            <motion.div className="absolute right-1/4 -bottom-8 h-16 w-16 rounded-2xl border border-primary/15" animate={{ rotate: -15 }} transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }} />
-            <motion.div className="absolute left-1/3 -top-8 h-14 w-14 rounded-2xl border border-accent/15" animate={{ rotate: 12 }} transition={{ duration: 4.5, repeat: Infinity, repeatType: "reverse" }} />
+            {/* Additional square-shaped background doodles - hidden on mobile */}
+            <motion.div className="absolute -left-8 top-1/4 h-12 w-12 rounded-2xl border border-secondary/20 max-md:hidden" animate={{ rotate: 8 }} transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }} />
+            <motion.div className="absolute right-1/4 -bottom-8 h-16 w-16 rounded-2xl border border-primary/15 max-md:hidden" animate={{ rotate: -15 }} transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }} />
+            <motion.div className="absolute left-1/3 -top-8 h-14 w-14 rounded-2xl border border-accent/15 max-md:hidden" animate={{ rotate: 12 }} transition={{ duration: 4.5, repeat: Infinity, repeatType: "reverse" }} />
             
-            {/* Additional decorative elements around the profile */}
+            {/* Additional decorative elements around the profile - hidden on mobile */}
             <motion.div 
-              className="absolute -right-8 top-1/3 w-6 h-6 rounded-full border-2 border-secondary/20"
+              className="absolute -right-8 top-1/3 w-6 h-6 rounded-full border-2 border-secondary/20 max-md:hidden"
               animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
             
             <motion.div 
-              className="absolute -left-8 bottom-1/3 w-5 h-5 text-primary/20"
+              className="absolute -left-8 bottom-1/3 w-5 h-5 text-primary/20 max-md:hidden"
               animate={{ rotate: 360 }}
               transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
             >
@@ -365,6 +489,15 @@ export function HeroSection() {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="hero-subtitle font-body text-xl text-white/80 text-left my-2"
+              >
+                {title}
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
                 className="hero-description font-body leading-relaxed text-white text-left my-4"
               >
@@ -378,34 +511,56 @@ export function HeroSection() {
                 transition={{ delay: 1.2 }}
                 className="flex flex-wrap gap-4 justify-center lg:justify-start"
               >
-                <button
-                  onClick={() => {
-                    const targetId = "projects"
-                    const element = document.getElementById(targetId)
-                    if (element) {
-                      const offset = 100
-                      const elementPosition = element.getBoundingClientRect().top + window.scrollY
-                      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" })
-                    }
-                  }}
-                  className="px-6 py-3 bg-accent text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-accent/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg responsive-btn"
-                >
-                  View My Work
-                </button>
-                <button
-                  onClick={() => {
-                    const targetId = "contact"
-                    const element = document.getElementById(targetId)
-                    if (element) {
-                      const offset = 100
-                      const elementPosition = element.getBoundingClientRect().top + window.scrollY
-                      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" })
-                    }
-                  }}
-                  className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg responsive-btn"
-                >
-                  Get In Touch
-                </button>
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <button
+                    onClick={() => {
+                      const element = document.getElementById("projects");
+                      if (element) {
+                        const offset = 100;
+                        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                        window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                      } else {
+                        // Fallback: try to find the element by other means
+                        const elements = document.querySelectorAll("[id='projects'], [data-section='projects']");
+                        if (elements.length > 0) {
+                          const element = elements[0];
+                          const offset = 100;
+                          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                          window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                        }
+                      }
+                    }}
+                    className="relative px-6 py-2 bg-[#1a1a2e] text-white font-semibold rounded-lg shadow-md hover:bg-[#1a1a2e]/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    View My Work
+                  </button>
+                </div>
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <button
+                    onClick={() => {
+                      const element = document.getElementById("contact");
+                      if (element) {
+                        const offset = 100;
+                        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                        window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                      } else {
+                        // Fallback: try to find the element by other means
+                        const elements = document.querySelectorAll("[id='contact'], [data-section='contact']");
+                        if (elements.length > 0) {
+                          const element = elements[0];
+                          const offset = 100;
+                          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                          window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                        }
+                      }
+                    }}
+                    className="relative px-6 py-2 bg-[#16213e] text-white font-semibold rounded-lg shadow-md hover:bg-[#16213e]/90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    Get In Touch
+                  </button>
+                </div>
               </motion.div>
             </div>
           </motion.div>

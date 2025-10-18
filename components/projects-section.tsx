@@ -5,6 +5,7 @@ import { GlareHover } from "./glare-hover"
 import { Rocket, FileText, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
+import { StarDoodle, MoonDoodle, HeartDoodle, CircleDoodle, SquareDoodle, SparkleDoodle } from "@/components/doodle-elements"
 
 const projects = [
   {
@@ -15,7 +16,7 @@ const projects = [
     status: "In Progress",
     tags: ["Startup", "Full-Stack", "Leadership"],
     direction: "right",
-    logo: undefined,
+    logo: "/Thisisus main logo.png",
     viewUrl: "https://thisisusfinal.vercel.app",
   },
   {
@@ -26,7 +27,7 @@ const projects = [
     status: "Active Development",
     tags: ["Community", "Real-time", "Collaboration"],
     direction: "left",
-    logo: undefined,
+    logo: "/notionary-logo.png",
     viewUrl: "https://notionary-psi.vercel.app",
   },
 ]
@@ -73,6 +74,16 @@ export function ProjectsSection() {
           }}
           className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-accent/20 blur-3xl"
         />
+        
+        {/* Doodle elements for the projects section */}
+        <StarDoodle className="absolute top-20 left-10 w-6 h-6" delay={0.5} />
+        <MoonDoodle className="absolute top-32 right-16 w-8 h-8" delay={1} />
+        <HeartDoodle className="absolute bottom-40 left-20 w-5 h-5" delay={1.5} />
+        <CircleDoodle className="absolute top-1/3 right-32 w-10 h-10" delay={2} />
+        <SquareDoodle className="absolute bottom-32 right-24 w-7 h-7" delay={2.5} />
+        <SparkleDoodle className="absolute top-1/4 left-1/3 w-4 h-4" delay={3} />
+        <StarDoodle className="absolute bottom-1/4 left-1/4 w-5 h-5" delay={3.5} />
+        <HeartDoodle className="absolute top-3/4 right-1/3 w-6 h-6" delay={4} />
       </div>
 
       <div className="fluid-container">
@@ -139,7 +150,18 @@ export function ProjectsSection() {
                         transition={{ duration: 0.5 }}
                         className="rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 p-3 shadow-lg shadow-accent/20"
                       >
-                        <project.icon className="h-8 w-8 text-foreground" />
+                        {project.logo ? (
+                          <div className="relative h-12 w-12">
+                            <Image 
+                              src={project.logo} 
+                              alt={`${project.title} logo`} 
+                              fill 
+                              className="object-contain" 
+                            />
+                          </div>
+                        ) : (
+                          <project.icon className="h-8 w-8 text-foreground" />
+                        )}
                       </motion.div>
                       <motion.span
                         initial={{ opacity: 0, scale: 0.8 }}

@@ -2,16 +2,18 @@
 
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 const navItems = [
-  { name: "Home", href: "#" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Skills", href: "/skills" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +23,11 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Hide the navigation when scrolling
+  if (scrolled) {
+    return null
+  }
 
   return (
     <motion.nav
@@ -33,11 +40,10 @@ export function Navigation() {
     >
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="flex h-16 items-center justify-between">
-          <motion.a href="#" className="text-xl font-bold" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Erfan</span>
-          </motion.a>
+          {/* Removed the name display from the main navigation */}
+          <div></div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 md:gap-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -45,9 +51,20 @@ export function Navigation() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-sm font-medium transition-colors hover:text-cyan-400"
+                className={`text-sm font-medium transition-colors hover:text-cyan-400 ${
+                  pathname === item.href ? "text-cyan-400 font-bold" : ""
+                }`}
               >
                 {item.name}
+                {/* Add underline for active item */}
+                {pathname === item.href && (
+                  <motion.div
+                    className="h-0.5 bg-cyan-400 mt-1"
+                    layoutId="nav-underline"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  />
+                )}
               </motion.a>
             ))}
           </div>
