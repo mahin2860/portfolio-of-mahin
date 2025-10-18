@@ -147,6 +147,18 @@
   padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem);
 }
 
+/* Mobile-specific padding to prevent overlap with navigation */
+@media (max-width: 768px) {
+  .responsive-padding {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+  
+  .hero-section {
+    padding-top: 6rem !important;
+  }
+}
+
 .responsive-margin {
   margin: clamp(1rem, 3vw, 2rem) 0;
 }
@@ -166,6 +178,14 @@
 .responsive-image {
   width: clamp(12rem, 30vw, 16rem); /* 192px to 256px */
   height: clamp(12rem, 30vw, 16rem);
+}
+
+/* Mobile-specific image sizing */
+@media (max-width: 768px) {
+  .responsive-image {
+    width: clamp(10rem, 40vw, 14rem);
+    height: clamp(10rem, 40vw, 14rem);
+  }
 }
 
 /* Responsive button sizing */
@@ -253,6 +273,13 @@
   max-width: min(100% - 2rem, 80rem);
   margin-inline: auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+/* Mobile-specific container adjustments */
+@media (max-width: 768px) {
+  .fluid-container {
+    padding-inline: 1rem;
+  }
 }
 
 /* Responsive aspect ratios */

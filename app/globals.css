@@ -229,6 +229,7 @@
 
   /* Hero button utilities */
   .btn-hero {
+    /* These styles can be used for other buttons, but hero section buttons have custom styling */
     background-color: var(--deep-teal);
     color: var(--amber-gold);
     border: 1px solid var(--border);
@@ -246,5 +247,73 @@
   section {
     min-height: 100vh;
     padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem);
+  }
+  
+  /* Doodle element utilities */
+  .doodle-star {
+    animation: spin 20s linear infinite;
+  }
+  
+  .doodle-moon {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .doodle-cloud {
+    animation: drift 10s ease-in-out infinite;
+  }
+  
+  .doodle-heart {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .doodle-circle {
+    animation: pulse 4s ease-in-out infinite;
+  }
+  
+  .doodle-square {
+    animation: rotate 6s ease-in-out infinite;
+  }
+  
+  .doodle-triangle {
+    animation: sway 7s ease-in-out infinite;
+  }
+  
+  .doodle-sparkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(5px, -5px); }
+  }
+  
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(3px, 0); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  
+  @keyframes rotate {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 1; }
   }
 }

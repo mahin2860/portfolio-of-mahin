@@ -6,12 +6,26 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
 import { orbitron, spaceGrotesk, inter } from "@/lib/fonts"
+import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
-  title: "Erfan Noor Mahin - Tech Enthusiast & Developer",
+  title: "Mahin's Portfolio",
   description:
-    "19-year-old tech enthusiast specializing in web application development and database management. Building innovative solutions with modern technologies.",
-  generator: "v0.app",
+    "Personal portfolio showcasing web development projects and technical skills.",
+  generator: "Next.js",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    }
+  }
 }
 
 export default function RootLayout({
@@ -22,6 +36,36 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable} ${orbitron.variable} ${spaceGrotesk.variable} ${inter.variable}`}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Prevent right-click on images
+              document.addEventListener('contextmenu', function(e) {
+                if (e.target.tagName === 'IMG') {
+                  e.preventDefault();
+                  return false;
+                }
+              });
+              
+              // Prevent dragging of images
+              document.addEventListener('dragstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                  e.preventDefault();
+                  return false;
+                }
+              });
+              
+              // Prevent image selection
+              document.addEventListener('selectstart', function(e) {
+                if (e.target.tagName === 'IMG') {
+                  e.preventDefault();
+                  return false;
+                }
+              });
+            `,
+          }}
+        />
+        <Navigation />
         <div className="page-background min-h-screen">
           <Suspense fallback={null}>{children}</Suspense>
         </div>

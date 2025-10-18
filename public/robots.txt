@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /erfan-profile.jpg
+Disallow: /Thisisus main logo.png
+Disallow: /notionary-logo.png
+
+User-agent: Googlebot-Image
+Disallow: /

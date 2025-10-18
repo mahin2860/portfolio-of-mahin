@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import './privacy.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -121,6 +122,44 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Privacy protection for profile images */
+  img[src*="erfan-profile"] {
+    /* Prevent right-click context menu */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    /* Prevent dragging of the image */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    
+    /* Prevent image selection */
+    pointer-events: none;
+    
+    /* Add a subtle overlay effect */
+    position: relative;
+  }
+  
+  /* Additional protection for all images */
+  img {
+    /* Prevent right-click context menu */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    /* Prevent dragging of the image */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
   }
 }
 

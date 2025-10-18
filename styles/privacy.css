@@ -1,0 +1,55 @@
+/* Privacy protection CSS to prevent image scraping and direct access */
+img[src*="erfan-profile"] {
+  /* Prevent right-click context menu */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Prevent dragging of the image */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  
+  /* Prevent image selection */
+  pointer-events: none;
+  
+  /* Add a subtle overlay to further discourage saving */
+  position: relative;
+}
+
+img[src*="erfan-profile"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Additional protection for all images in the public directory */
+img[src^="/"] {
+  /* Prevent right-click context menu */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Prevent dragging of the image */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Prevent image URLs from being directly accessed */
+@media screen and (max-width: 1px) {
+  img {
+    display: none;
+  }
+}

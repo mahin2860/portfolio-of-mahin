@@ -1,21 +1,27 @@
 "use client"
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { ContactSection } from "@/components/contact-section"
+import { TargetCursor } from "@/components/target-cursor"
+import { Navigation } from "@/components/navigation"
+import { PillNav } from "@/components/pill-nav"
 
 export default function ContactPage() {
-  const router = useRouter()
-
-  useEffect(() => {
-    router.replace("/#contact")
-  }, [router])
-
   return (
-    <div className="relative min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">Redirecting...</h1>
-        <p className="text-muted-foreground">Taking you to the contact section</p>
-      </div>
+    <div className="relative min-h-screen page-background contact-page">
+      <TargetCursor />
+      <Navigation />
+      <PillNav
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Projects", href: "/projects" },
+          { label: "Skills", href: "/skills" },
+          { label: "Contact", href: "/contact" },
+        ]}
+        activeHref="/contact"
+      />
+      <main>
+        <ContactSection />
+      </main>
     </div>
   )
 }

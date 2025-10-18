@@ -1,21 +1,27 @@
 "use client"
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { SkillsSection } from "@/components/skills-section"
+import { TargetCursor } from "@/components/target-cursor"
+import { Navigation } from "@/components/navigation"
+import { PillNav } from "@/components/pill-nav"
 
 export default function SkillsPage() {
-  const router = useRouter()
-
-  useEffect(() => {
-    router.replace("/#skills")
-  }, [router])
-
   return (
-    <div className="relative min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">Redirecting...</h1>
-        <p className="text-muted-foreground">Taking you to the skills section</p>
-      </div>
+    <div className="relative min-h-screen page-background skills-page">
+      <TargetCursor />
+      <Navigation />
+      <PillNav
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Projects", href: "/projects" },
+          { label: "Skills", href: "/skills" },
+          { label: "Contact", href: "/contact" },
+        ]}
+        activeHref="/skills"
+      />
+      <main>
+        <SkillsSection />
+      </main>
     </div>
   )
 }

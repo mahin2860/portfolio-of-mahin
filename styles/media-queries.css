@@ -4,7 +4,7 @@
 @media (max-width: 480px) {
   /* Hero Section */
   .hero-section {
-    padding-top: 2rem;
+    padding-top: 4rem;
     padding-bottom: 2rem;
   }
   
@@ -19,6 +19,10 @@
   
   .hero-image-container {
     margin-bottom: 2rem;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   /* Projects Section */
@@ -32,8 +36,10 @@
   }
   
   .skills-orbital {
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   /* Contact Section */
@@ -55,8 +61,22 @@
   
   /* Typography adjustments for small screens */
   .hero-name {
-    font-size: 2.5rem;
+    font-size: 2rem;
     letter-spacing: 0.05em;
+    text-align: center;
+  }
+  
+  .section-header {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
   }
 }
 
@@ -64,7 +84,7 @@
 @media (min-width: 481px) and (max-width: 768px) {
   /* Hero Section */
   .hero-section {
-    padding-top: 3rem;
+    padding-top: 5rem;
     padding-bottom: 3rem;
   }
   
@@ -75,6 +95,10 @@
   
   .hero-buttons {
     justify-content: flex-start;
+  }
+  
+  .hero-image-container {
+    max-width: 250px;
   }
   
   /* Projects Section */
@@ -88,13 +112,20 @@
   }
   
   .skills-orbital {
-    width: 320px;
-    height: 320px;
+    width: 240px;
+    height: 240px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   /* Contact Section */
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Typography adjustments */
+  .hero-name {
+    font-size: 2.5rem;
   }
 }
 
@@ -102,7 +133,7 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   /* Hero Section */
   .hero-section {
-    padding-top: 4rem;
+    padding-top: 6rem;
     padding-bottom: 4rem;
   }
   
@@ -126,7 +157,7 @@
 @media (min-width: 1025px) and (max-width: 1200px) {
   /* Hero Section */
   .hero-section {
-    padding-top: 5rem;
+    padding-top: 7rem;
     padding-bottom: 5rem;
   }
   
@@ -150,7 +181,7 @@
 @media (min-width: 1201px) {
   /* Hero Section */
   .hero-section {
-    padding-top: 6rem;
+    padding-top: 8rem;
     padding-bottom: 6rem;
   }
   
@@ -197,11 +228,16 @@
 @media (max-width: 768px) and (orientation: landscape) {
   .hero-section {
     min-height: 80vh;
+    padding-top: 5rem;
   }
   
   .skills-orbital {
-    width: 240px;
-    height: 240px;
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hero-image-container {
+    max-width: 180px;
   }
 }
 
@@ -212,8 +248,16 @@
   }
   
   .skills-orbital {
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .skills-orbital {
+    width: 160px;
+    height: 160px;
   }
 }
 
