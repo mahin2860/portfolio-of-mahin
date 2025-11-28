@@ -17,7 +17,7 @@ const projects = [
     tags: ["Startup", "Full-Stack", "Leadership"],
     direction: "right",
     logo: "/Thisisus main logo.png",
-    viewUrl: "https://thisisusfinal.vercel.app",
+    viewUrl: "https://thisisus-dev.vercel.app",
   },
   {
     title: "Notionary",
