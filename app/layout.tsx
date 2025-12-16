@@ -9,10 +9,25 @@ import { orbitron, spaceGrotesk, inter } from "@/lib/fonts"
 import { Navigation } from "@/components/navigation"
 
 export const metadata: Metadata = {
-  title: "Mahin's Portfolio",
+  title: "Erfan Noor Mahin | Portfolio",
   description:
     "Personal portfolio showcasing web development projects and technical skills.",
   generator: "Next.js",
+  authors: [{ name: "Erfan Noor Mahin" }],
+  creator: "Erfan Noor Mahin",
+  openGraph: {
+    title: "Erfan Noor Mahin | Portfolio",
+    description: "Personal portfolio showcasing web development projects and technical skills.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Erfan Noor Mahin Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Erfan Noor Mahin | Portfolio",
+    description: "Personal portfolio showcasing web development projects and technical skills.",
+    creator: "@erfannoormahin",
+  },
   robots: {
     index: true,
     follow: true,
